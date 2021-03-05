@@ -1908,10 +1908,10 @@ EXPORT_SYMBOL(cpufreq_unregister_notifier);
  * Governors calling this function must guarantee that it will never be invoked
  * twice in parallel for the same policy and that it will never be called in
  * parallel with either ->target() or ->target_index() for the same policy.
+ * Returns the actual frequency set for the CPU.
  *
- * If CPUFREQ_ENTRY_INVALID is returned by the driver's ->fast_switch()
- * callback to indicate an error condition, the hardware configuration must be
- * preserved.
+ * If 0 is returned by the driver's ->fast_switch() callback to indicate an
+ * error condition, the hardware configuration must be preserved.
  */
 unsigned int cpufreq_driver_fast_switch(struct cpufreq_policy *policy,
 					unsigned int target_freq)
